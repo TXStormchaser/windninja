@@ -75,13 +75,14 @@
 /*-----------------------------------------------------------------------------
  *  REST API", string templates
  *-----------------------------------------------------------------------------*/
-#define LF_REQUEST_TEMPLATE "https://landfire.cr.usgs.gov/" \
-                            "requestValidationServiceClient/" \
-                            "sampleRequestValidationServiceProxy/processAOI.jsp?" \
-                            "TOP=%lf&BOTTOM=%lf&LEFT=%lf&RIGHT=%lf" \
-                            "&LAYER_IDS=%s" \
-                            "&CHUNK_SIZE=250" \
-                            "&JSON=true"
+#define LF_REQUEST_TEMPLATE "https://aws.wfasd.net/geoserver/ows?service=WPS&version=1.0.0" \
+                            "&request=execute" \
+                            "&identifier=gs:LandscapeExport" \
+                            "&DataInputs=Longitude=-114;Latitude=45;" \
+                            "Version=LF140;" \
+                            "Resolution=30;" \
+                            "Extent=5" \
+                            "&RawDataOutput=output" -o landscape.tif
 
 #define LF_REQUEST_RETURN_TEMPLATE  "\n\n\n{\"REQUEST_SERVICE_RESPONSE\":" \
                                     "{\"PIECE\":[{\"THUMBNAIL_URL\":\"none\"," \
